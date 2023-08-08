@@ -5,8 +5,14 @@ async function get_value(req,res,next) {
     res.locals.result = result;
     next()
 }
+async function marks_sum_(req,res,next) {
+    var rollNum = req.params.rollNum
+    var result = await modelData.sum_mark(rollNum)
+    res.locals.result = result;
+    next()
+}
 module.exports={
-    get_value
+    get_value , marks_sum_
 }
 
 

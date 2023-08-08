@@ -19,5 +19,15 @@ async function get_value() {
     }
 }
 
+async function sum_mark(rollNum) {
+    const marks_sum = 'select sum(mathsMark+scienceMark+englishMark) from mark_  where rollNum=?'
+    var result = await db_connect.query(marks_sum,rollNum);
+    if(result[0].length!=0){
+        return result[0]
+    }else {
+        return []
+    }
+}
+
 // module.exports = { insert_query, insert_query_, inner_join }
-module.exports = {get_value }
+module.exports = {get_value ,sum_mark}
